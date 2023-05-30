@@ -16,6 +16,7 @@ const App = () => {
 
   const handleAddNumber = (number) => {
     console.log(number);
+    console.log(currentNumber);
     setCurrentNumber(prev => `${prev === '0' ? '' : prev}${number}`);
   }
 
@@ -25,8 +26,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('+');
     } else {
-      const sum = Number(firstNumber) + Number(currentNumber);
-      setCurrentNumber(String(sum));
+      setCurrentNumber(String(Number(firstNumber) + Number(currentNumber)));
       setOperation('');
     }
   }
@@ -37,9 +37,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('-');
     } else {
-      const sub = Number(firstNumber) - Number(currentNumber);
-      setCurrentNumber(String(sub));
-      setOperation('');
+      setCurrentNumber(String(Number(firstNumber) - Number(currentNumber)));
     }
   }
 
@@ -49,9 +47,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('*');
     } else {
-      const mult = Number(firstNumber) * Number(currentNumber);
-      setCurrentNumber(String(mult));
-      setOperation('');
+      setCurrentNumber(String(Number(firstNumber) * Number(currentNumber)));
     }
   }
 
@@ -61,9 +57,7 @@ const App = () => {
       setCurrentNumber('0');
       setOperation('/');
     } else {
-      const div = Number(firstNumber) / Number(currentNumber);
-      setCurrentNumber(String(div));
-      setOperation('');
+      setCurrentNumber(String(Number(firstNumber) / Number(currentNumber)));
     }
   }
 
@@ -84,6 +78,7 @@ const App = () => {
           break;
         default: break;
       }
+      setOperation('');
     }
   }
 
